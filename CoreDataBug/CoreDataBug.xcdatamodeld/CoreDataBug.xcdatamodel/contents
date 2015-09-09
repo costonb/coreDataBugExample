@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="ExtendedProperty" representedClassName="CoreDataBug.ExtendedProperty" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="people" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="extendedProperties" inverseEntity="Person" syncable="YES"/>
+    </entity>
+    <entity name="Person" representedClassName="CoreDataBug.Person" syncable="YES">
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="extendedProperties" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ExtendedProperty" inverseName="people" inverseEntity="ExtendedProperty" syncable="YES"/>
+        <relationship name="targets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Target" inverseName="person" inverseEntity="Target" syncable="YES"/>
+    </entity>
+    <entity name="Target" representedClassName="CoreDataBug.Target" syncable="YES">
+        <attribute name="targetName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="targets" inverseEntity="Person" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Target" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="ExtendedProperty" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="Person" positionX="-36" positionY="9" width="128" height="90"/>
+    </elements>
+</model>
